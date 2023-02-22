@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ViewModels;
 using Views;
 using Microsoft.Extensions.Logging;
+using Material.Components.Maui.Extensions;
 
 public static class MauiProgram
 {
@@ -21,12 +22,24 @@ public static class MauiProgram
 			       fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			       fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			   });
+
 		builder.UseMauiCommunityToolkit(options =>
 		{
 			options.SetShouldSuppressExceptionsInAnimations(true);
 			options.SetShouldSuppressExceptionsInBehaviors(true);
 			options.SetShouldSuppressExceptionsInConverters(true);
 		});
+
+		builder.UseMaterialComponents(new List<string>
+			{
+                "Montserrat-Regular.ttf",
+				"Montserrat-Italic.ttf",
+				"Montserrat-Medium.ttf",
+				"Montserrat-MediumItalic.ttf",
+				"Montserrat-Bold.ttf",
+				"Montserrat-BoldItalic.ttf",
+			});
+
 		builder.Services.AddApplication();
 		builder.Services.AddInfrastructureData(GetDatabaseConnectionString("MyDocU"));
 		builder.Services.AddInfrastructureBusiness();

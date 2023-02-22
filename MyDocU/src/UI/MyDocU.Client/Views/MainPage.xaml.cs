@@ -13,12 +13,12 @@ public partial class MainPage : ContentPage
 
 	private void btnLogin_Clicked(object sender, EventArgs e)
 	{
-		string userName = txtUserName.Text;
-		string password = txtPassword.Text;
-		if (userName == null || password == null)
-		{
-			DisplayAlert("Message", "Please Input Username & Password", "Ok");
-			return;
-		}
+		//string userName = txtUserName.Text;
+		//string password = txtPassword.Text;
+		//if (userName == null || password == null)
+		//{
+	//		DisplayAlert("Message", "Please Input Username & Password", "Ok");
+	//		return;
+	//	}
     }
 }
