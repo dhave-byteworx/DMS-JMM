@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="MyDocU.Client.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    xmlns:viewModels="clr-namespace:MyDocU.Client.ViewModels;assembly=MyDocU.Client"
+    x:Name="PersonPage"
+    Title=""
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*" />
+                    <ColumnDefinition Width="0.50*" />
+                    <ColumnDefinition Width="0.25*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout
+                    Grid.Column="1"
+                    Padding="50"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="150"
+                        Source="document.png"
+                        WidthRequest="150" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="23"
+                        HorizontalOptions="Center"
+                        Text="Welcome to MyDocU"
+                        TextColor="Black" />
+
+                    <Label
+                        Margin="0,0,0,30"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        Text="Login to your account"
+                        TextColor="Black" />
+
+                    <mdc:TextField
+                        Margin="0,0,0,20"
+                        Icon="Email"
+                        LabelText="Email Address"
+                        Shape="10"
+                        Style="{DynamicResource OutlinedTextFieldStyle}"
+                        SupportingText=""
+						Text="{Binding Email, Mode=TwoWay}"/>
+
+                    <mdc:TextField
+                        Margin="0,0,0,30"
+                        Icon="Password"
+                        LabelText="Password"
+                        Shape="10"
+                        Style="{DynamicResource OutlinedTextFieldStyle}"
+                        SupportingText=""
+						Text="{Binding Password, Mode=TwoWay}"/>
+
+                    <mdc:Button
+                        Margin="0,0,0,10"
+                        BackgroundColour="Black"
+                        HorizontalOptions="FillAndExpand"
+                        Shape="20"
+                        Text="Sign In"
+                        WidthRequest="240"
+						Command="{Binding SubmitCommand}"/>
+
+                    <mdc:Button
+                        HorizontalOptions="Center"
+                        Style="{StaticResource TextButtonStyle}"
+                        Text="Forgot Password?" />
+
+                    <mdc:Label
+                        Margin="0,0,0,20"
+                        HorizontalOptions="Center"
+                        Text="--------------- OR -----------------" />
+
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <mdc:Button
+                            Margin="0,0,0,10"
+                            BackgroundColour="Black"
+                            HorizontalOptions="Start"
+                            Icon="Google"
+                            Shape="20"
+                            Text="Continue with Google     "
+                            WidthRequest="240" />
+
+                        <mdc:Button
+                            Margin="0,0,0,10"
+                            BackgroundColour="Black"
+                            HorizontalOptions="Start"
+                            Icon="Facebook"
+                            Shape="20"
+                            Text="Continue with Facebook"
+                            WidthRequest="240" />
+                    </VerticalStackLayout>
+
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <skia:SKLottieView
+                    HeightRequest="500"
+                    HorizontalOptions="Center"
+                    RepeatCount="-1"
+                    Source="datamgmt2.json"
+                    WidthRequest="500" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>	

@@ -26,6 +26,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -44,12 +45,24 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Raw\airplane.json" />
+	  <None Remove="Resources\Raw\datamanage.json" />
+	  <None Remove="Resources\Raw\datamgmt.json" />
+	  <None Remove="Resources\Raw\datamgmt2.json" />
+	  <None Remove="Resources\Raw\Documents.json" />
+	  <None Remove="Resources\Raw\folder.json" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Material.Components.Maui" Version="0.1.0-beta" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
+		<PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
 	</ItemGroup>
 	
 	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) =='maccatalyst' ">
@@ -63,5 +76,11 @@
 	  <ProjectReference Include="..\..\Application\MyDocU.Application\MyDocU.Application.csproj" />
 	  <ProjectReference Include="..\..\Infrastructure\MyDocU.Infrastructure.Business\MyDocU.Infrastructure.Business.csproj" />
 	  <ProjectReference Include="..\..\Infrastructure\MyDocU.Infrustructure.Data\MyDocU.Infrastructure.Data.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 </Project>

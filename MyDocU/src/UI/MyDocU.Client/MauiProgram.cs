@@ -10,18 +10,21 @@ using ViewModels;
 using Views;
 using Microsoft.Extensions.Logging;
 using Material.Components.Maui.Extensions;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		builder.UseMauiApp<App>()
-		       .ConfigureFonts(fonts =>
+		builder
+			.UseMauiApp<App>()
+		    .ConfigureFonts(fonts =>
 		       {
 			       fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			       fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			   });
+			   })
+			.UsePrism(PrismStartup.Configure);
 
 		builder.UseMauiCommunityToolkit(options =>
 		{
@@ -39,13 +42,12 @@ public static class MauiProgram
 				"Montserrat-Bold.ttf",
 				"Montserrat-BoldItalic.ttf",
 			});
-
+		builder.UseSkiaSharp();
 		builder.Services.AddApplication();
 		builder.Services.AddInfrastructureData(GetDatabaseConnectionString("MyDocU"));
 		builder.Services.AddInfrastructureBusiness();
-		builder.Services.AddSingleton<MainViewModel>();
-		builder.Services.AddSingleton<MainPage>();
-
+		builder.Services.AddSingleton<LoginViewModel>();
+		builder.Services.AddSingleton<LoginPage>();
 
 		var app = builder.Build();
 		MigrateDb(app.Services);
