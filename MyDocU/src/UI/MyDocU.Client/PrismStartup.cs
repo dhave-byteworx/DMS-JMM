@@ -2,7 +2,8 @@
 {
 	using MyDocU.Client.ViewModels;
 	using MyDocU.Client.Views;
-
+	using MyDocU.Domain.Interfaces;
+	using MyDocU.Infrastructure.Services.Mocks;
 
 	internal class PrismStartup
 	{
@@ -17,6 +18,8 @@
 		{
 			containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>()
 				.RegisterInstance(SemanticScreenReader.Default);
+
+			containerRegistry.RegisterSingleton<IAuthenticationService, MockAuthenticationService>();
 		}
 	}
 }

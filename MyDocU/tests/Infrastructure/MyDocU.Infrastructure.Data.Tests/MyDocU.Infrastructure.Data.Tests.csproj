@@ -19,9 +19,5 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\Infrastructure\MyDocU.Infrustructure.Data\MyDocU.Infrastructure.Data.csproj" />
-	</ItemGroup>
 	
 </Project>

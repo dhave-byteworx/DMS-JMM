@@ -8,8 +8,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Application\MyDocU.Application\MyDocU.Application.csproj" />
-  </ItemGroup>
-
 </Project>

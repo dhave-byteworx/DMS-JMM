@@ -59,6 +59,7 @@
 		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Material.Components.Maui" Version="0.1.0-beta" />
+		<PackageReference Include="MediatR" Version="12.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
 		<PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
@@ -71,11 +72,10 @@
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Application\MyDocU.Application\MyDocU.Application.csproj" />
-	  <ProjectReference Include="..\..\Infrastructure\MyDocU.Infrastructure.Business\MyDocU.Infrastructure.Business.csproj" />
-	  <ProjectReference Include="..\..\Infrastructure\MyDocU.Infrustructure.Data\MyDocU.Infrastructure.Data.csproj" />
+	  <ProjectReference Include="..\..\..\MyDocU.Infrastructure\MyDocU.Infrastructure.csproj" />
+	  <ProjectReference Include="..\..\..\MyDocUApplication\MyDocU.Application.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

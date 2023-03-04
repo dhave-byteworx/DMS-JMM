@@ -20,8 +20,4 @@
 		</PackageReference>
 	</ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\src\Application\MyDocU.Application\MyDocU.Application.csproj" />
-    </ItemGroup>
-
 </Project>
