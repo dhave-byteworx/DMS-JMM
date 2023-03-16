@@ -19,11 +19,11 @@ namespace MyDocU.Application.Commands
 		public AuthenticationResponse Response { get; set; }
 	}
 
-	public class AuthenticationUserDeviceCommandHandler : IRequestHandler<AuthenticateUserCommand, AuthenticateUserCommandResponse>
+	public class AuthenticationUserCommandHandler : IRequestHandler<AuthenticateUserCommand, AuthenticateUserCommandResponse>
 	{
 		private readonly IAuthenticationService authenticationService;
 
-		public AuthenticationUserDeviceCommandHandler(IAuthenticationService authenticationService)
+		public AuthenticationUserCommandHandler(IAuthenticationService authenticationService)
 		{
 			this.authenticationService = authenticationService;
 		}

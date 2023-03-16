@@ -9,8 +9,8 @@
 
 		private List<User> users = new List<User>()
 		{
-			new User { Id ="1234", Email = "jmmatias1989@gmail.com", Password = "12345678" },
-			new User { Id ="4321", Email = "cathymatias1989@gmail.com", Password = "123456789" }
+			new User { Id ="1234", Email = "jmm@gmail.com", Password = "123" },
+			new User { Id ="4321", Email = "cc@gmail.com", Password = "1234" }
 
 		};
 

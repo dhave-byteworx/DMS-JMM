@@ -61,8 +61,6 @@
 		<PackageReference Include="Material.Components.Maui" Version="0.1.0-beta" />
 		<PackageReference Include="MediatR" Version="12.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-		<PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
-		<PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
 		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
 	</ItemGroup>
 	
@@ -76,11 +74,32 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\MyDocU.Infrastructure\MyDocU.Infrastructure.csproj" />
 	  <ProjectReference Include="..\..\..\MyDocUApplication\MyDocU.Application.csproj" />
+	  <ProjectReference Include="..\..\..\Prism\src\Prism.DryIoc.Maui\Prism.DryIoc.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\Prism\src\Prism.Maui.Rx\Prism.Maui.Rx.csproj" />
+	  <ProjectReference Include="..\..\..\Prism\src\Prism.Maui\Prism.Maui.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Views\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\AddDocumentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FullDetailView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MenuView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ShellPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SplashPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

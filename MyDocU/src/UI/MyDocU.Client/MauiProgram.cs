@@ -1,10 +1,19 @@
 ﻿namespace MyDocU.Client;
+
 using CommunityToolkit.Maui;
+using FluentValidation;
 using Material.Components.Maui.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using MyDocU.Client.ViewModels;
+using MyDocU.Client.Views;
+using MyDocU.Domain.Interfaces;
+using MyDocU.Domain.Models.Validators;
+using MyDocU.Infrastructure.Services.Mocks;
+using Prism;
+using Prism.Ioc;
+using Prism.Modularity;
+using Prism.Navigation;
 using SkiaSharp.Views.Maui.Controls.Hosting;
-using ViewModels;
-using Views;
 
 public static class MauiProgram
 {
@@ -13,12 +22,25 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			   {
-				   fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				   fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			   })
-			.UsePrism(PrismStartup.Configure);
+			.UsePrism(prism =>
+			{
+				prism
+				.ConfigureModuleCatalog(moduleCatalog =>
+				{
+					moduleCatalog.AddModule<MyDocUModule>();
+				})
+				.RegisterTypes(containerRegistry =>
+				{
+					containerRegistry.RegisterSingleton<IAuthenticationService, MockAuthenticationService>();
+					containerRegistry.RegisterForNavigation<SplashPage, SplashPageViewModel>();
+					containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+					containerRegistry.RegisterSingleton<IValidator<LoginPageViewModel>, LogInValidator>();
+				})
+				.OnAppStart(navigationService => navigationService.CreateBuilder()
+					.AddSegment<SplashPageViewModel>()
+					.NavigateAsync(HandleNavigationError));
+			});
+
 
 		builder.UseMauiCommunityToolkit(options =>
 		{
@@ -42,9 +64,6 @@ public static class MauiProgram
 			x.RegisterServicesFromAssemblies(typeof(MyDocU.Application.Commands.AuthenticateUserCommand).Assembly);
 		});
 
-		builder.Services.AddSingleton<LoginViewModel>();
-		builder.Services.AddSingleton<LoginPage>();
-
 		var app = builder.Build();
 		return app;
 	}
@@ -54,4 +73,9 @@ public static class MauiProgram
 		return $"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename)}.db";
 	}
 
+	private static void HandleNavigationError(Exception ex)
+	{
+		Console.WriteLine(ex);
+		System.Diagnostics.Debugger.Break();
+	}
 }

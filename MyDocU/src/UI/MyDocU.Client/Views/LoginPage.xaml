@@ -20,15 +20,17 @@
 
             <Grid Grid.Column="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.25*" />
-                    <ColumnDefinition Width="0.50*" />
-                    <ColumnDefinition Width="0.25*" />
+                    <ColumnDefinition Width="0.20*" />
+                    <ColumnDefinition Width="0.60*" />
+                    <ColumnDefinition Width="0.20*" />
                 </Grid.ColumnDefinitions>
 
                 <StackLayout
                     Grid.Column="1"
                     Padding="50"
-                    VerticalOptions="Center">
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+
                     <Image
                         HeightRequest="150"
                         Source="document.png"
@@ -55,8 +57,9 @@
                         LabelText="Email Address"
                         Shape="10"
                         Style="{DynamicResource OutlinedTextFieldStyle}"
-                        SupportingText=""
-						Text="{Binding Email, Mode=TwoWay}"/>
+                        SupportingText="{Binding EmailValidationText}"
+                        SupportingTextColor="Red"
+                        Text="{Binding Email, Mode=TwoWay}" />
 
                     <mdc:TextField
                         Margin="0,0,0,30"
@@ -64,17 +67,17 @@
                         LabelText="Password"
                         Shape="10"
                         Style="{DynamicResource OutlinedTextFieldStyle}"
-                        SupportingText=""
-						Text="{Binding Password, Mode=TwoWay}"/>
+                        SupportingText="{Binding PasswordValidation}"
+                        SupportingTextColor="Red"
+                        Text="{Binding Password, Mode=TwoWay}" />
 
                     <mdc:Button
                         Margin="0,0,0,10"
                         BackgroundColour="Black"
+                        Command="{Binding SubmitCommand}"
                         HorizontalOptions="FillAndExpand"
                         Shape="20"
-                        Text="Sign In"
-                        WidthRequest="240"
-						Command="{Binding SubmitCommand}"/>
+                        Text="Sign In" />
 
                     <mdc:Button
                         HorizontalOptions="Center"
@@ -84,26 +87,24 @@
                     <mdc:Label
                         Margin="0,0,0,20"
                         HorizontalOptions="Center"
-                        Text="--------------- OR -----------------" />
+                        Text="OR" />
 
                     <VerticalStackLayout HorizontalOptions="Center">
                         <mdc:Button
                             Margin="0,0,0,10"
                             BackgroundColour="Black"
-                            HorizontalOptions="Start"
+                            HorizontalOptions="FillAndExpand"
                             Icon="Google"
                             Shape="20"
-                            Text="Continue with Google     "
-                            WidthRequest="240" />
+                            Text="Sign In with Google" />
 
                         <mdc:Button
                             Margin="0,0,0,10"
                             BackgroundColour="Black"
-                            HorizontalOptions="Start"
+                            HorizontalOptions="FillAndExpand"
                             Icon="Facebook"
                             Shape="20"
-                            Text="Continue with Facebook"
-                            WidthRequest="240" />
+                            Text="Sign In with Facebook" />
                     </VerticalStackLayout>
 
                 </StackLayout>
@@ -114,7 +115,7 @@
                     HeightRequest="500"
                     HorizontalOptions="Center"
                     RepeatCount="-1"
-                    Source="datamgmt2.json"
+                    Source="Documents.json"
                     WidthRequest="500" />
             </Grid>
         </Grid>
