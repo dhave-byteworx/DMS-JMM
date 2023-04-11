@@ -8,7 +8,7 @@ public class PrismApplication : Application, IWindowManager
 {
     private Window initialWindow;
 
-    protected sealed override Window CreateWindow(IActivationState activationState)
+    protected override Window CreateWindow(IActivationState activationState)
     {
         if (initialWindow is not null)
             return initialWindow;

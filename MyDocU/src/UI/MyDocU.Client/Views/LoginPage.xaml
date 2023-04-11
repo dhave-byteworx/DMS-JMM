@@ -11,8 +11,8 @@
     Title=""
     Shell.NavBarIsVisible="False">
 
-    <ScrollView>
-        <Grid>
+	<ScrollView>
+        <Grid Margin="0,0,0,50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -25,25 +25,25 @@
                     <ColumnDefinition Width="0.20*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout
+				<StackLayout
                     Grid.Column="1"
-                    Padding="50"
+                    Padding="30"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="CenterAndExpand">
 
-                    <Image
+					<Image
                         HeightRequest="150"
                         Source="document.png"
                         WidthRequest="150" />
 
-                    <Label
+					<Label
                         FontAttributes="Bold"
                         FontSize="23"
                         HorizontalOptions="Center"
                         Text="Welcome to MyDocU"
                         TextColor="Black" />
 
-                    <Label
+					<Label
                         Margin="0,0,0,30"
                         FontAttributes="Bold"
                         FontSize="15"
@@ -51,7 +51,7 @@
                         Text="Login to your account"
                         TextColor="Black" />
 
-                    <mdc:TextField
+					<!--<mdc:TextField
                         Margin="0,0,0,20"
                         Icon="Email"
                         LabelText="Email Address"
@@ -59,9 +59,9 @@
                         Style="{DynamicResource OutlinedTextFieldStyle}"
                         SupportingText="{Binding EmailValidationText}"
                         SupportingTextColor="Red"
-                        Text="{Binding Email, Mode=TwoWay}" />
+                        Text="{Binding Email, Mode=TwoWay}" />-->
 
-                    <mdc:TextField
+					<!--<mdc:TextField
                         Margin="0,0,0,30"
                         Icon="Password"
                         LabelText="Password"
@@ -69,9 +69,46 @@
                         Style="{DynamicResource OutlinedTextFieldStyle}"
                         SupportingText="{Binding PasswordValidation}"
                         SupportingTextColor="Red"
-                        Text="{Binding Password, Mode=TwoWay}" />
+                        Text="{Binding Password, Mode=TwoWay}"/>-->
 
-                    <mdc:Button
+					<Entry
+						Margin="0,0,0,5"
+						Placeholder="Email Address"
+						Text="{Binding Email, Mode=TwoWay}"/>
+					<Label
+						Margin="12,0,0,15"
+						Text="{Binding EmailValidationText}"
+						TextColor="Red"/>
+
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+
+						<Entry
+							Margin="0,0,0,30"
+							x:Name="PasswordEntry"
+							Placeholder ="Password" IsPassword ="True"
+							Text="{Binding Password, Mode=TwoWay}" />
+
+						<Label
+						Margin="12,35,0,0"
+						Text="{Binding PasswordValidation}"
+						TextColor="Red"/>
+						
+						<ImageButton
+								Grid.Column="0"
+								Source="show_pw_icon.png"
+								Command="{Binding TogglePasswordVisibilityCommand}"
+								CommandParameter="{Binding Source={x:Reference PasswordEntry}}"
+								WidthRequest="20"
+								HeightRequest="20"
+								HorizontalOptions="End"
+								Margin="0,0,10,30"/>
+					</Grid>
+
+					<mdc:Button
                         Margin="0,0,0,10"
                         BackgroundColour="Black"
                         Command="{Binding SubmitCommand}"
@@ -79,18 +116,18 @@
                         Shape="20"
                         Text="Sign In" />
 
-                    <mdc:Button
+					<mdc:Button
                         HorizontalOptions="Center"
                         Style="{StaticResource TextButtonStyle}"
                         Text="Forgot Password?" />
 
-                    <mdc:Label
+					<mdc:Label
                         Margin="0,0,0,20"
                         HorizontalOptions="Center"
                         Text="OR" />
 
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <mdc:Button
+					<VerticalStackLayout HorizontalOptions="Center">
+						<mdc:Button
                             Margin="0,0,0,10"
                             BackgroundColour="Black"
                             HorizontalOptions="FillAndExpand"
@@ -98,17 +135,17 @@
                             Shape="20"
                             Text="Sign In with Google" />
 
-                        <mdc:Button
+						<mdc:Button
                             Margin="0,0,0,10"
                             BackgroundColour="Black"
                             HorizontalOptions="FillAndExpand"
                             Icon="Facebook"
                             Shape="20"
                             Text="Sign In with Facebook" />
-                    </VerticalStackLayout>
+					</VerticalStackLayout>
 
-                </StackLayout>
-            </Grid>
+				</StackLayout>
+			</Grid>
 
             <Grid Grid.Column="1">
                 <skia:SKLottieView

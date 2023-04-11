@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyDocU.Client.Views.MenuView"
 			 xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
-			 WidthRequest="100">
+			 WidthRequest="100"
+			 BackgroundColor ="GhostWhite">
     <VerticalStackLayout Margin="0,20,0,20">
 		<VerticalStackLayout HeightRequest="80">
-			<mdc:IconButton Icon="Home" Command="{Binding NavigateToDocumentsCommand}" Style="{DynamicResource StandardIconButtonStyle}" />
-			<Label HorizontalTextAlignment="Center" Text="Home" HorizontalOptions="Center"/>
+			<mdc:IconButton Icon="FileDocument" Command="{Binding NavigateToDocumentsCommand}" Style="{DynamicResource StandardIconButtonStyle}" />
+			<Label HorizontalTextAlignment="Center" Text="Document" HorizontalOptions="Center"/>
 		</VerticalStackLayout>
 
 		<VerticalStackLayout HeightRequest="80">
-			<mdc:IconButton Icon="FileDocument" Command="{Binding NavigateToAddDocumentCommand}" Style="{DynamicResource StandardIconButtonStyle}" />
-			<Label HorizontalTextAlignment="Center" Text="Document" HorizontalOptions="Center"/>
+			<mdc:IconButton Icon="FileDocumentAdd" Command="{Binding NavigateToAddDocumentCommand}" Style="{DynamicResource StandardIconButtonStyle}" />
+			<Label HorizontalTextAlignment="Center" Text="Add Document" HorizontalOptions="Center"/>
 		</VerticalStackLayout>
 
 		<VerticalStackLayout HeightRequest="80">

@@ -1,8 +1,11 @@
 ﻿namespace MyDocU.Client.ViewModels;
 
+using System;
+using System.ComponentModel;
 using System.Windows.Input;
 using FluentValidation;
 using MediatR;
+using Microsoft.Maui.Controls;
 using MyDocU.Application.Commands;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -12,6 +15,7 @@ using Prism.Regions;
 public partial class LoginPageViewModel : BindableBase
 {
 	public ICommand SubmitCommand { get; private set; }
+	public ICommand TogglePasswordVisibilityCommand { get; private set; }
 
 	private readonly IRegionManager regionManager;
 	private readonly IMediator mediator;
@@ -30,6 +34,11 @@ public partial class LoginPageViewModel : BindableBase
 		this.navigationService = navigationService;
 
 		SubmitCommand = new DelegateCommand(Submit);
+		TogglePasswordVisibilityCommand = new Command<Entry>((entry) =>
+		{
+			entry.IsPassword = !entry.IsPassword;
+
+		});
 
 	}
 

@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
-             x:Class="MyDocU.Client.Views.SplashPage"
-             Title="SplashPage">
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
+<ContentPage
+    x:Class="MyDocU.Client.Views.SplashPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    Title="SplashPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="0.20*" />
-			<RowDefinition Height="0.60*" />
-			<RowDefinition Height="0.20*" />
-		</Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.20*" />
+            <RowDefinition Height="0.60*" />
+            <RowDefinition Height="0.20*" />
+        </Grid.RowDefinitions>
 
-		<VerticalStackLayout Grid.Row="1">
-			<skia:SKLottieView
+        <VerticalStackLayout Grid.Row="1">
+            <skia:SKLottieView
                 HeightRequest="400"
                 HorizontalOptions="Center"
-				VerticalOptions="Center"
                 RepeatCount="-1"
                 Source="loading.json"
+                VerticalOptions="Center"
                 WidthRequest="400" />
 
-			<Label 
-				Text="Welcome to MyDocU"
-				FontSize="20"
-				FontAttributes="Bold"
-				VerticalOptions="Center" 
-				HorizontalOptions="Center" />
-		</VerticalStackLayout>
-	</Grid>
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Welcome to MyDocU"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

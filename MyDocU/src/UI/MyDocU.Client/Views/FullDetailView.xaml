@@ -1,12 +1,110 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyDocU.Client.Views.FullDetailView"
-			 Background="gray">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentView
+    x:Class="MyDocU.Client.Views.FullDetailView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*" />
+            <ColumnDefinition Width="0.80*" />
+            <ColumnDefinition Width="0.05*" />
+        </Grid.ColumnDefinitions>
+
+        <HorizontalStackLayout Grid.Column="1">
+            <mdc:TextField
+                HorizontalOptions="Start"
+                Icon="Search"
+                LabelText="Search"
+                Shape="30"
+                Style="{DynamicResource OutlinedTextFieldStyle}"
+                SupportingText=""
+                VerticalOptions="Center"
+                WidthRequest="500" />
+
+            <mdc:Button
+                Margin="130,0,0,0"
+                FontSize="15"
+                HorizontalOptions="End"
+                Style="{DynamicResource OutlinedButtonStyle}"
+                Text="+ Create"
+                VerticalOptions="Center" />
+        </HorizontalStackLayout>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="0,20,0,0"
+            ColumnSpacing="-1"
+            RowSpacing="-1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border>
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="ID"
+                    VerticalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="TITLE"
+                    VerticalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="DESCRIPTIONS"
+                    VerticalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="CREATED DATE"
+                    VerticalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="IS ACTIVE"
+                    VerticalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0" />
+            <Border Grid.Row="1" Grid.Column="1" />
+            <Border Grid.Row="1" Grid.Column="2" />
+            <Border Grid.Row="1" Grid.Column="3" />
+            <Border Grid.Row="1" Grid.Column="4" />
+            <Border Grid.Row="2" Grid.Column="0" />
+            <Border Grid.Row="2" Grid.Column="1" />
+            <Border Grid.Row="2" Grid.Column="2" />
+            <Border Grid.Row="2" Grid.Column="3" />
+            <Border Grid.Row="2" Grid.Column="4" />
+            <Border Grid.Row="3" Grid.Column="0" />
+            <Border Grid.Row="3" Grid.Column="1" />
+            <Border Grid.Row="3" Grid.Column="2" />
+            <Border Grid.Row="3" Grid.Column="3" />
+            <Border Grid.Row="3" Grid.Column="4" />
+        </Grid>
+    </Grid>
 </ContentView>

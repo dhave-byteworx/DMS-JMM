@@ -15,7 +15,7 @@
 
 		public async void OnAppearing()
 		{
-			await Task.Delay(TimeSpan.FromSeconds(7));
+			await Task.Delay(TimeSpan.FromSeconds(5));
 			_navigationService.CreateBuilder()
 				.UseAbsoluteNavigation()
 				.AddSegment<LoginPageViewModel>()
